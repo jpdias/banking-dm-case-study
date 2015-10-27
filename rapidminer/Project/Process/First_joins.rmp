@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<process version="6.5.002">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="6.5.002" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve client" width="90" x="45" y="30">
+        <parameter key="repository_entry" value="//Banking/Project/Data/client"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve district" width="90" x="45" y="75">
+        <parameter key="repository_entry" value="//Banking/Project/Data/district"/>
+      </operator>
+      <operator activated="true" class="join" compatibility="6.5.002" expanded="true" height="76" name="Client-District" width="90" x="246" y="30">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="district_id" value="code"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve disposition" width="90" x="45" y="165">
+        <parameter key="repository_entry" value="//Banking/Project/Data/disposition"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve credit_card" width="90" x="45" y="210">
+        <parameter key="repository_entry" value="//Banking/Project/Data/credit_card"/>
+      </operator>
+      <operator activated="true" class="join" compatibility="6.5.002" expanded="true" height="76" name="Disposition-CreditCard" width="90" x="246" y="165">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="disp_id" value="disp_id"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve loan" width="90" x="179" y="345">
+        <parameter key="repository_entry" value="//Banking/Project/Data/loan"/>
+      </operator>
+      <operator activated="true" class="join" compatibility="6.5.002" expanded="true" height="76" name="Join" width="90" x="380" y="345">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="true"/>
+        <list key="key_attributes"/>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve payment_order" width="90" x="45" y="435">
+        <parameter key="repository_entry" value="//Banking/Project/Data/payment_order"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve transactions" width="90" x="179" y="435">
+        <parameter key="repository_entry" value="//Banking/Project/Data/transactions"/>
+      </operator>
+      <connect from_op="Retrieve client" from_port="output" to_op="Client-District" to_port="left"/>
+      <connect from_op="Retrieve district" from_port="output" to_op="Client-District" to_port="right"/>
+      <connect from_op="Client-District" from_port="join" to_port="result 1"/>
+      <connect from_op="Retrieve disposition" from_port="output" to_op="Disposition-CreditCard" to_port="left"/>
+      <connect from_op="Retrieve credit_card" from_port="output" to_op="Disposition-CreditCard" to_port="right"/>
+      <connect from_op="Disposition-CreditCard" from_port="join" to_port="result 2"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+    </process>
+  </operator>
+</process>
