@@ -60,6 +60,7 @@
           <parameter key="district_id" value="ignore04"/>
           <parameter key="loan_date" value="ignore05"/>
           <parameter key="type" value="ignore06"/>
+          <parameter key="disp_id" value="ignore07"/>
         </list>
       </operator>
       <operator activated="true" class="k_means" compatibility="6.5.002" expanded="true" height="76" name="Clustering" width="90" x="705" y="120">
