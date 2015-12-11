@@ -61,13 +61,18 @@
           <parameter key="loan_date" value="ignore05"/>
           <parameter key="type" value="ignore06"/>
           <parameter key="disp_id" value="ignore07"/>
+          <parameter key="YY" value="ignore08"/>
+          <parameter key="DD" value="ignore09"/>
+          <parameter key="MM" value="ignore10"/>
+          <parameter key="sex" value="ignore11"/>
+          <parameter key="status" value="ignore12"/>
         </list>
       </operator>
       <operator activated="true" class="k_means" compatibility="6.5.002" expanded="true" height="76" name="Clustering" width="90" x="705" y="120">
         <parameter key="add_cluster_attribute" value="true"/>
         <parameter key="add_as_label" value="false"/>
         <parameter key="remove_unlabeled" value="false"/>
-        <parameter key="k" value="6"/>
+        <parameter key="k" value="4"/>
         <parameter key="max_runs" value="10"/>
         <parameter key="determine_good_start_values" value="false"/>
         <parameter key="measure_types" value="MixedMeasures"/>

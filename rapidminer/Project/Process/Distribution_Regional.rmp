@@ -28,7 +28,7 @@
         </list>
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="set_role" compatibility="6.5.002" expanded="true" height="76" name="Set Role" width="90" x="313" y="165">
+      <operator activated="true" class="set_role" compatibility="6.5.002" expanded="true" height="76" name="Set Role" width="90" x="380" y="165">
         <parameter key="attribute_name" value="client_id"/>
         <parameter key="target_role" value="ignore01"/>
         <list key="set_additional_roles">
@@ -36,6 +36,9 @@
           <parameter key="birth_number" value="ignore02"/>
           <parameter key="district_id" value="ignore03"/>
           <parameter key="name" value="ignore04"/>
+          <parameter key="YY" value="ignore05"/>
+          <parameter key="MM" value="ignore06"/>
+          <parameter key="DD" value="ignore07"/>
         </list>
       </operator>
       <operator activated="true" class="k_means" compatibility="6.5.002" expanded="true" height="76" name="Clustering" width="90" x="514" y="165">

@@ -16,10 +16,10 @@
       <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve district" width="90" x="45" y="75">
         <parameter key="repository_entry" value="//Banking/Project/Data/district"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve client_district_age" width="90" x="112" y="30">
+      <operator activated="true" class="retrieve" compatibility="6.5.002" expanded="true" height="60" name="Retrieve client_district_age" width="90" x="45" y="165">
         <parameter key="repository_entry" value="//Banking/Project/Data/client_district_age"/>
       </operator>
-      <operator activated="true" class="multiply" compatibility="6.5.002" expanded="true" height="94" name="Multiply (2)" width="90" x="112" y="174"/>
+      <operator activated="true" class="multiply" compatibility="6.5.002" expanded="true" height="94" name="Multiply (2)" width="90" x="179" y="30"/>
       <operator activated="true" class="set_role" compatibility="6.5.002" expanded="true" height="76" name="Set Role (2)" width="90" x="313" y="30">
         <parameter key="attribute_name" value="client_id"/>
         <parameter key="target_role" value="ignore00"/>
@@ -87,7 +87,7 @@
           <parameter key="unemployment_96" value="ignore17"/>
         </list>
       </operator>
-      <operator activated="true" class="k_means" compatibility="6.5.002" expanded="true" height="76" name="Clustering-Crime" width="90" x="514" y="210">
+      <operator activated="true" class="k_means" compatibility="6.5.002" expanded="true" height="76" name="Clustering-Crime" width="90" x="514" y="255">
         <parameter key="add_cluster_attribute" value="true"/>
         <parameter key="add_as_label" value="false"/>
         <parameter key="remove_unlabeled" value="false"/>
