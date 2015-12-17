@@ -137,8 +137,7 @@
         <parameter key="filters_logic_and" value="true"/>
         <parameter key="filters_check_metadata" value="true"/>
       </operator>
-      <operator activated="true" class="multiply" compatibility="6.5.002" expanded="true" height="94" name="Multiply (2)" width="90" x="648" y="210"/>
-      <operator activated="true" class="split_validation" compatibility="6.5.002" expanded="true" height="112" name="Validation" width="90" x="782" y="30">
+      <operator activated="true" class="split_validation" compatibility="6.5.002" expanded="true" height="112" name="Validation" width="90" x="715" y="165">
         <parameter key="create_complete_model" value="false"/>
         <parameter key="split" value="relative"/>
         <parameter key="split_ratio" value="0.7"/>
@@ -230,20 +229,17 @@
       <connect from_op="Filter Examples (3)" from_port="example set output" to_op="Filter Examples (4)" to_port="example set input"/>
       <connect from_op="Filter Examples (4)" from_port="example set output" to_op="Apply Model" to_port="unlabelled data"/>
       <connect from_op="Filter Examples" from_port="example set output" to_op="Filter Examples (2)" to_port="example set input"/>
-      <connect from_op="Filter Examples (2)" from_port="example set output" to_op="Multiply (2)" to_port="input"/>
-      <connect from_op="Multiply (2)" from_port="output 1" to_op="Validation" to_port="training"/>
-      <connect from_op="Multiply (2)" from_port="output 2" to_port="result 3"/>
+      <connect from_op="Filter Examples (2)" from_port="example set output" to_op="Validation" to_port="training"/>
       <connect from_op="Validation" from_port="model" to_op="Apply Model" to_port="model"/>
       <connect from_op="Validation" from_port="averagable 1" to_port="result 1"/>
-      <connect from_op="Apply Model" from_port="labelled data" to_port="result 4"/>
-      <connect from_op="Apply Model" from_port="model" to_port="result 5"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_port="result 3"/>
+      <connect from_op="Apply Model" from_port="model" to_port="result 4"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
       <portSpacing port="sink_result 3" spacing="0"/>
       <portSpacing port="sink_result 4" spacing="0"/>
       <portSpacing port="sink_result 5" spacing="0"/>
-      <portSpacing port="sink_result 6" spacing="0"/>
     </process>
   </operator>
 </process>
